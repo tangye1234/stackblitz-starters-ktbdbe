@@ -1,7 +1,6 @@
 module.exports = {
   reactStrictMode: true,
-  experimental: {
-    serverActions: true,
-    appDir: true,
+  compiler: {
+    styledComponents: true,
   },
 };
