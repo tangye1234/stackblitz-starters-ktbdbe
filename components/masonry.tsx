@@ -284,13 +284,13 @@ function handleResize(masonry: HTMLElement | undefined, isResize = false) {
     }
 
     // if there is a nested image that isn't rendered yet, masonry's height shouldn't be computed yet
-    // for (let i = 0; i < child.childNodes.length; i += 1) {
-    //   const nestedChild = child.childNodes[i] as Element
-    //   if (nestedChild.tagName === 'IMG' && nestedChild.clientHeight === 0) {
-    //     skip = true
-    //     break
-    //   }
-    // }
+    for (let i = 0; i < child.childNodes.length; i += 1) {
+      const nestedChild = child.childNodes[i] as Element
+      if (nestedChild.tagName === 'IMG' && nestedChild.clientHeight === 0) {
+        skip = true
+        break
+      }
+    }
 
     if (!skip) {
       // find the current shortest column (where the current item will be placed)
