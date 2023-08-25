@@ -224,7 +224,7 @@ const Masonry = forwardRef<HTMLElement, MasonryInnerProps>(
       </MasonryRoot>
     )
   }
-) as unknown as MasonryRootType
+) as MasonryRootType
 
 function handleResize(masonry: HTMLElement | undefined, isResize = false) {
   if (!masonry || masonry.childElementCount === 0) {
@@ -247,13 +247,6 @@ function handleResize(masonry: HTMLElement | undefined, isResize = false) {
     parentWidth /
       (firstChildWidth + firstChildMarginLeft + firstChildMarginRight)
   )
-
-  // const previousNumberOfColumns = columnElements.length
-  // if (currentNumberOfColumns !== previousNumberOfColumns) {
-  //   columnElements = new Array(currentNumberOfColumns).fill(
-  //     []
-  //   ) as HTMLElement[][]
-  // }
 
   const columnHeights = new Array(currentNumberOfColumns).fill(0) as number[]
   let skip = false
