@@ -1,7 +1,4 @@
-'use client'
-
 import {
-  startTransition,
   useEffect,
   useImperativeHandle,
   useMemo,
