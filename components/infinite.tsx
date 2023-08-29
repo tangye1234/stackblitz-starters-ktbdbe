@@ -46,7 +46,7 @@ export function Infinite({ page = 0 }: { page?: number }) {
       ) : (
         data.map(({ index, ratio }) => (
           <div
-            className={`grid place-content-center border rounded bg-gray-200 ${ratio}`}
+            className={`grid place-content-center border rounded bg-gray-200 shadow-md ${ratio}`}
             key={index}
           >
             {index}

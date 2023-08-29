@@ -80,6 +80,7 @@ const MasonryRoot = styled.div<{ $state: MasonryRootState }>`
       (1 / var(--masonry-column, 1)) * 100% - var(--masonry-spacing, 0px)
     );
     order: calc(1 + var(--masonry-column, 1));
+    contain: layout style paint;
   }
 
   ${({ $state }) =>
@@ -159,8 +160,8 @@ const Masonry = forwardRef<HTMLElement, MasonryInnerProps>(
 
       if (masonryRef.current) {
         masonryRef.current.childNodes.forEach(child => {
-          if (child instanceof Element) {
-            resizeObserver.observe(child as Element)
+          if (child instanceof HTMLElement && child.dataset.class !== 'line-break') {
+            resizeObserver.observe(child)
           }
         })
       }
@@ -171,12 +172,12 @@ const Masonry = forwardRef<HTMLElement, MasonryInnerProps>(
             return
           }
           mutation.addedNodes.forEach(node => {
-            if (node instanceof Element) {
+            if (node instanceof HTMLElement && node.dataset.class !== 'line-break') {
               resizeObserver.observe(node)
             }
           })
           mutation.removedNodes.forEach(node => {
-            if (node instanceof Element) {
+            if (node instanceof HTMLElement && node.dataset.class !== 'line-break') {
               resizeObserver.unobserve(node)
             }
           })
